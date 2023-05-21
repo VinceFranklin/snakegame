@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Snake Game</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles1.css" />
+    <style>
+      body {
+        /* height: 100vh; */
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-basis: 0;
+        /* align-items: center; */
+        margin: 0;
+        /* background: url("images/jhh.jfif"); */
+        background: linear-gradient(purple, orange);
+      }
+      #game-board {
+        background-color: #20262e;
+        /* opacity: 50%; */
+        /* width: 100%; */
+        /* min-width: 600px; */
+        aspect-ratio: 1;
+        display: grid;
+        grid-template-rows: repeat(21, 1fr);
+        grid-template-columns: repeat(21, 1fr);
+      }
+
+      .controls-container{
+        border: 1px solid black;
+        /* padding: 0 2em 0 2em; */
+      }
+      .snake {
+        /* background-image: linear-gradient(#f99b7d, #dfd2d2); */
+        /* background: red; */
+        background-image: url("images/snakeskin.webp");
+        border: 0.25vmin solid black;
+        border-radius: 2%;
+      }
+      .head {
+        background-image: black;
+        border: 0.25vmin solid black;
+        /* border-radius:; */
+      }
+      .food {
+        background-image: linear-gradient(white, rgb(7, 7, 7));
+        /* background-color:#000; */
+        border: 0.25vmin solid black;
+      }
+      .food1 {
+        background-image: linear-gradient(rgb(7, 213, 192), rgb(9, 8, 8));
+        border: 0.25vmin solid black;
+      }
+      .food2 {
+        background-image: linear-gradient(rgb(192, 11, 164), rgb(5, 5, 5));
+        border: 0.25vmin solid black;
+      }
+      .food3 {
+        background-image: linear-gradient(rgb(220, 13, 48), rgb(8, 8, 8));
+        border: 0.25vmin solid black;
+      }
+      .powerups {
+        background-image: linear-gradient(#0c011e, #da8c0e);
+        border: 0.25vmin;
+        border-radius: 10%;
+      }
+      .nfx {
+        /*background-image:linear-gradient(#970606,#089c32);*/
+        background-color: #da0463;
+        border: 0.25vmin;
+        border-radius: 10%;
+      }
+      .Timer {
+        color: #20262e;
+        margin-left: 10%;
+        text-align: center;
+      }
+      .score {
+        margin-top: 5%;
+        color: blue;
+        text-align: center;
+      }
+      #Timer {
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+      }
+      .lop {
+        margin: 10%;
+        text-align: center;
+        color: aqua;
+      }
+      .col {
+        color: chocolate;
+      }
+      .btn {
+        outline: none;
+        border: 10px solid #404b69;
+        font-size: 1rem;
+        font-family: "Arvo", cursive;
+        line-height: 2;
+        font-weight: 900;
+        color: #da0463;
+        text-shadow: 3px 0 #dbedf3;
+        border-radius: 15px;
+        display: inline-block;
+        width: 25%;
+        max-width: 100px;
+        /* height: 100px; */
+        text-align: center;
+        margin: 10px;
+        background-color: rgb(243, 240, 243);
+      }
+
+      .arrow-up-container{
+        width: 100%;
+        text-align: center;
+      }
+      .up {
+        margin: auto;
+      }
+
+      .other-arrows-container{
+        display: flex;
+        justify-content: center;
+      }
+      /* .left {
+        margin-left: 100px;
+      } */
+      .pause-btn-container {
+        text-align: center;
+        margin-top: 2em;
+      }
+      .pause-button {
+        outline: none;
+        border: 10px solid #404b69;
+        font-size: 0.85rem;
+        font-family: "Arvo", cursive;
+        line-height: 2;
+        font-weight: 900;
+        color: #da0463;
+        text-shadow: 3px 0 #dbedf3;
+        border-radius: 15px;
+        display: inline-block;
+        width: 42%;
+        max-width: 180px;
+        /* height: 75px; */
+        text-align: center;
+        /* margin-top: 10px; */
+        background-color: rgb(243, 240, 243);
+        /* margin-left: 100px; */
+      }
+      .pressed {
+        box-shadow: 0 3px 4px 0 #dbedf3;
+        opacity: 0.5;
+      }
+      .color-container{
+        /* justify-content: center */
+        text-align: center;
+        margin-top:20%;
+      }
+      .high-score{
+        color:white;
+      }
+      .life{
+        color:white
+      }
+      .sd{
+        color:white;
+      }
+      /* .arrows{
+        background-image:linear-gradient(#00425A,#84D2C5);
+      } */
+    </style>
+    <script src="index.js" defer type="module"></script>
+  </head>
+
+  <body>
+    <div id="game-board"></div>
+    <div class="controls-container">
+      <div id="Timer">
+        <div>
+          <h1 class="col Timer">TIMER:</h1>
+          <!-- <h2 class="Timer"></h2> -->
+          <h1 class="lop score">SCORE:</h1>
+        </div>
+        <div>
+          <h1 class="life">LIVES</h1>
+          <br>
+          <!-- <h2 class="life"></h2> -->
+          <h1 class="high-score">HI Score:0</h1>
+        </div>
+
+        <!-- <h2 class="score"></h2> -->
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <!-- < div class="arrows"> -->
+        <div class="arrow-up-container">
+          <button class="btn up ArrowUp">Up</button>
+        </div>
+        <div class="other-arrows-container">
+          <button class="btn left ArrowLeft">Left</button>
+        <button class="btn down ArrowDown">Down</button>
+        <button class="btn ArrowRight">Right</button>
+        </div>
+        <div class="pause-btn-container">
+          <button class="pause-button Pause Resume SpaceBar Enter">Pause</button>
+        </div>
+        
+        <div class="color-container">
+          <h2 class="sd">SEQUENCE</h2>
+        <button class="color-btn color1"></button>
+        <button class="color-btn color2"></button>
+        <button class="color-btn color3"></button>
+        <button class="color-btn color4"></button>
+        <h2 class="letters-order"></h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

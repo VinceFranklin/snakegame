@@ -1,0 +1,32 @@
+h1{
+    padding-top: 100px;
+    padding-left:10px;
+    padding-right: 10px;
+    padding:100px;
+    color:red;
+    font-family: 'Anton', sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
+button{
+   padding:20px 15px;
+    margin-left: 47%;
+}
+body{
+    background-color: black;
+}
+button:hover{
+    background-image: linear-gradient(rgb(30, 30, 105),green);
+}
+p{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color:aliceblue;
+}
+h2{
+    color:blanchedalmond;
+    text-align: center;
+}
+.container-1{
+    background-color: bisque;
+}

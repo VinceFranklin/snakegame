@@ -1,0 +1,78 @@
+/* .snake {
+     background-image:linear-gradient(#F99B7D,#dfd2d2);
+
+     border: .25vmin ;
+     border-radius: 10%;
+   } */
+
+/* .snakechangecolor{
+    background-color:red;
+} */
+
+@media (width < 1078px){
+    body{
+        flex-direction: column;
+    }
+    .pause-button{
+        margin-bottom: 3em;
+    }
+}
+
+@media (width > 1078px){
+    body{
+        height: 100vh;
+    }
+}
+.color-btn{
+    /* outline: none; */
+    /* border: 10px solid #404b69; */
+    font-size: 1rem;
+    font-family: "Arvo", cursive;
+    line-height: 2;
+    font-weight: 900;
+    color: #da0463;
+    text-shadow: 3px 0 #dbedf3;
+    border-radius: 15px;
+    display: inline-block;
+    /* height:50%; */
+    width: 10%;
+    /* max-width: 100px; */
+    height: 50px;
+    text-align: center;
+    margin-left:50px;
+    margin: 10px;
+    background-color: rgb(243, 240, 243)
+}
+.color1{
+    background-color: whitesmoke;
+    
+}
+.color2{
+    background-color: rgb(43, 160, 125);
+}
+.color3{
+    background-color: purple;
+}
+.color4{
+    background-color: red;
+}
+.realfood1{
+    background-color:orange;
+}
+
+.letters{
+    color:#fff;
+    text-align: center;
+    padding-top:25%;
+    text-decoration: dotted;
+    /* border: 0.25vmin solid black */
+}
+.letters-order{
+    color:white;
+}
+.portal-In{
+    background-color:white;
+}
+.portal-Out{
+    background-color:black;
+}
